@@ -19,6 +19,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.4",
     "gulp": "^4.0.0",

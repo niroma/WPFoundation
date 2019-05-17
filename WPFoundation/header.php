@@ -10,7 +10,7 @@
 
 
 
-<header class="header">
+<header class="branded-header">
 	<hgroup class="header-title">
 					<?php if ( get_theme_mod( 'wpf_logo' ) ) : ?>
                         <?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1 class="logo">'; } else { echo '<div class="logo">'; } ?>
@@ -50,7 +50,7 @@
 			<div class="top-bar-right">
 				<ul class="menu">
 					<li>
-						<a href="#">Icons</a>
+						<a href="#">Icons <i class="fas fa-align-right"></i></a>
 					</li>
 				</ul>
 			</div>

@@ -5,7 +5,7 @@
             <main id="content" class="cell auto">
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="header hero-header"<?php if ( has_post_thumbnail() ) { $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); echo 'style="background-image: url(\''. $thumb['0'] .'\');"'; } ?>>
+                        <header class="hero-header"<?php if ( has_post_thumbnail() ) { $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); echo 'style="background-image: url(\''. $thumb['0'] .'\');"'; } ?>>
                             <h1 class="entry-title"><?php the_title(); ?></h1>
                         </header>
                         <div class="entry-content">

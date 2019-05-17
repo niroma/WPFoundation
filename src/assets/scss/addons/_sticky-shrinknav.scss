@@ -1,5 +1,5 @@
 
-$sticky-shrinknav-hero-height: 300px;
+$branded-header-height: 300px;
 $sticky-shrinknav-menu-height: rem-calc(60);
 
 .header-title {
@@ -19,16 +19,24 @@ $sticky-shrinknav-menu-height: rem-calc(60);
   color: $white;
 }
 
-.header {
+.branded-header {
  // z-index: +1;
   width: 100%;
-  height: $sticky-shrinknav-hero-height;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $primary-color;
   text-align: center;
   color: $white;
+
+  height: $branded-header-height / 1.5;
+
+  @include breakpoint(medium) {
+    height: ($branded-header-height);
+  }
+
+
+
   & a {color: $white;}
   & .entry-title {clear: both;}
   /*position: fixed;

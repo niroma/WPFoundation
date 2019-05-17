@@ -9,6 +9,11 @@ Text Domain: wpfoundation
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
+$fa-font-path:  "assets/fonts";
+@import "regular";
+@import "solid";
+@import "brands";
+@import "fontawesome";
 
 // Global styles
 @include foundation-global-styles;
@@ -68,7 +73,6 @@ Text Domain: wpfoundation
 // Motion UI
 @include motion-ui-transitions;
 @include motion-ui-animations;
-
 
 @import 'addons/simple-subscription-form';
 @import 'addons/sticky-shrinknav';

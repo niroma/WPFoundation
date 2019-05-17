@@ -28,7 +28,7 @@ function loadConfig() {
 // Build the "dist" folder by running all of the below tasks
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sass));
+ gulp.series(clean, gulp.parallel(pages, javascript, images, copy, fonts), sass));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -66,19 +66,11 @@ function languages() {
     .pipe(gulp.dest(PATHS.dist + '/languages'));
 }
 
-// Load updated HTML templates and partials into Panini
-/*function resetPages(done) {
-  panini.refresh();
-  done();
-}*/
-
-// Generate a style guide from the Markdown content and HTML template in styleguide/
-/*function styleGuide(done) {
-  sherpa('src/styleguide/index.md', {
-    output: PATHS.dist + '/styleguide.html',
-    template: 'src/styleguide/template.html'
-  }, done);
-}*/
+// Copy fonts
+function fonts() {
+  return gulp.src(PATHS.fonts)
+    .pipe(gulp.dest(PATHS.dist + '/assets/fonts'));
+}
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
@@ -148,29 +140,13 @@ function images() {
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
-// Start a server with BrowserSync to preview the site in
-/*function server(done) {
-  browser.init({
-    server: PATHS.dist, port: PORT
-  }, done);
-}*/
-
-// Reload the browser with BrowserSync
-/*function reload(done) {
-  browser.reload();
-  done();
-}*/
-
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/pages/**/*').on('all', pages);
   gulp.watch('src/languages/*').on('all', languages);
-  //gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
-  //gulp.watch('src/data/**/*.{js,json,yml}').on('all', gulp.series(resetPages, pages, browser.reload));
-  //gulp.watch('src/helpers/**/*.js').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
+  gulp.watch('node_modules/@fortawesome/fontawesome-free/webfonts').on('all', gulp.series(fonts, sass));
   gulp.watch('src/assets/js/**/*.js').on('all', javascript);
   gulp.watch('src/assets/img/**/*').on('all', images);
-  //gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));
 }

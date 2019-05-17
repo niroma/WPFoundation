@@ -9,6 +9,15 @@ function wpf_customize_register( $wp_customize ) {
         'settings' => 'wpf_logo',
     ) ) );
 	
+    $wp_customize->add_setting( 'wpf_header_background' ); // Add setting for logo uploader
+         
+    // Add control for logo uploader (actual uploader)
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'wpf_header_background', array(
+        'label'    => __( 'Header Background Image', 'wpf' ),
+        'section'  => 'title_tagline',
+        'settings' => 'wpf_header_background',
+    ) ) );
+	
     $wp_customize->add_setting( 'fallback_thumbnail' ); // Add setting for logo uploader
 	     
     // Add control for logo uploader (actual uploader)

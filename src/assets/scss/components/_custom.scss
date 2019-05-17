@@ -8,7 +8,7 @@ $large-article-header-height: rem-calc(300);
   align-items: center;
   justify-content: center;
   text-align: center;
-
+  color: $white;
   background: $primary-color;
   color:$large-article-header-color;
   background-size: cover;
@@ -22,6 +22,7 @@ $large-article-header-height: rem-calc(300);
   @include breakpoint(medium) {
     height: ($large-article-header-height);
   }
+  
   &:after {
 	  content: "";
 	  background:#000;
@@ -33,8 +34,9 @@ $large-article-header-height: rem-calc(300);
 	  position: absolute;
 	  z-index: +1;   
 	}
-  & *:not(:after) {z-index:+2}
-  & .entry-title {display:block;width:100%; z-index: +2;  }
+
+  & a {color: $white;}
+  & .entry-title {clear: both;display:block;width:100%; z-index: +2;  }
 }
 
 nav.navigation + section {margin:$global-margin * 2 0;}
