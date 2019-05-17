@@ -18,11 +18,12 @@ $large-article-header-height: rem-calc(300);
   margin-bottom:$global-margin;
   position: relative;
   overflow:hidden;
+  padding:$global-padding;
 
   @include breakpoint(medium) {
     height: ($large-article-header-height);
   }
-  
+
   &:after {
 	  content: "";
 	  background:#000;
@@ -42,7 +43,45 @@ $large-article-header-height: rem-calc(300);
 nav.navigation + section {margin:$global-margin * 2 0;}
 
 
+.sidebar-post-preview {
+  header {
+    position: relative;
+    overflow:hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white;
+    background: $primary-color;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: 50% 50%; 
+    min-height:100px;
+    margin-bottom:$global-margin;
 
+    &:after {
+      content: "";
+      background:#000;
+      opacity: 0.3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: +1;   
+    }
+    .entry-title {
+      padding:$global-padding;
+      z-index:+2;
+      position: relative;
+      color: $white;
+      font-size:$global-font-size;
+      font-weight: $global-weight-bold;
+      a {color: $white;}
+    }
+  }
+}
 
 .alignleft {
 	float: left;
@@ -60,7 +99,19 @@ nav.navigation + section {margin:$global-margin * 2 0;}
 	margin: 0 auto $global-margin;
 }
 
-
+.article-preview {
+  .fitpic {
+    position:relative;
+    background:$primary-color;
+    overflow: hidden;
+    &:after {content: '';display: block; padding-bottom: 100%;}
+    > img {width:100%;height:100%;object-fit: cover;position:absolute;top:0;}
+  }
+  .entry-title {padding:0 $global-padding;}
+  .entry-meta {font-size:$small-font-size;}
+  .entry-summary {padding:$global-padding;}
+}
+/*
 .article-preview .thumbBox {
   @include breakpoint(medium) {
     position:relative;background:$primary-color;overflow: hidden;
@@ -74,7 +125,7 @@ nav.navigation + section {margin:$global-margin * 2 0;}
       position:absolute;}
   }
 }
-
+*/
 .sidebar .widget-area {
 	max-width:300px;
 	& ul {margin:0;padding:0;list-style: none}

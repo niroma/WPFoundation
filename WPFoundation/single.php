@@ -16,7 +16,10 @@
                                     </div>
                                 </div>
                             </header>
-                            <?php get_template_part('entry', 'content'); ?>
+                            <div class="entry-content">
+                                <?php the_content(); ?>
+                                <div class="entry-links"><?php wp_link_pages(); ?></div>
+                            </div>
                             <?php get_template_part( 'entry-footer' ); ?>
                         </article>
 

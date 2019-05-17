@@ -79,7 +79,7 @@ function wpfoundation_widgets_init() {
 			'name' => esc_html__( 'Sidebar Widget Area', 'wpf' ),
 			'id' => 'primary-widget-area',
 			'before_widget' => '<section id="%1$s" class="widget-container %2$s">',
-			'after_widget' => '</section>',
+			'after_widget' => '</section><hr>',
 			'before_title' => '<header><h3 class="widget-title">',
 			'after_title' => '</h3></header>'
 		) 
@@ -136,3 +136,4 @@ include_once('components/menu_walker.php');
 include_once('components/theme-customizer.php');
 include_once('components/thumbnails.php');
 //include_once('components/sidebars.php');
+include_once('components/widgets.php');

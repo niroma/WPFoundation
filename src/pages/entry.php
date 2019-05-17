@@ -1,18 +1,28 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<header class="header hero-header" <?php if ( has_post_thumbnail() ) { $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); echo 'style="background-image: url(\''. $thumb['0'] .'\');"'; } ?>>
-<?php if ( is_singular() ) {
-echo '<h1 class="entry-title">';
-} else {
-echo '<h2 class="entry-title">';
-} ?>
-<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
-<?php if ( is_singular() ) {
-echo '</h1>';
-} else {
-echo '</h2>';
-} ?> <?php //edit_post_link(); ?>
-<?php if ( ! is_search() ) { get_template_part( 'entry', 'meta' ); } ?>
-</header>
-<?php get_template_part( 'entry', ( is_front_page() || is_home() || is_front_page() && is_home() || is_archive() || is_search() ? 'summary' : 'content' ) ); ?>
-<?php if ( is_singular() ) { get_template_part( 'entry-footer' ); } ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('grid-x article-preview'); ?>>
+    <?php 
+        $order = ( $wp_query->current_post % 2 == 0 ) ? 1 : 2;
+		$order2 = ( $wp_query->current_post % 2 == 0 ) ? 2 : 1;
+	?>
+    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="small-12 medium-6 fitpic small-order-1 medium-order-<?php echo $order; ?>">
+        <?php $post_id = get_the_ID(); 
+            $thumb = get_the_post_thumbnail($post_id, 'medium', array( 'property' => 'image' )); if (!empty($thumb)) : ?>
+            <?php echo $thumb; ?>
+        <?php endif; ?>
+    </a>
+    <div class="small-12 medium-6 small-order-<?php echo $order2; ?>">
+        <header>
+        	<h2 class="entry-title">
+        		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
+					<?php the_title(); ?>
+            	</a>
+            </h2>
+            <?php if ( ! is_search() ) { get_template_part( 'entry', 'meta' ); } ?>
+        </header>
+    	<div class="entry-summary">
+			<?php the_excerpt(); ?>
+            <?php if ( is_search() ) { ?>
+            	<div class="entry-links"><?php wp_link_pages(); ?></div>
+            <?php } ?>
+    	</div>
+	</div>
 </article>

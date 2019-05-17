@@ -10,7 +10,7 @@
 
 
 
-<header class="branded-header">
+<header class="branded-header" <?php if ( get_theme_mod( 'wpf_header_background' ) ) echo 'style="background-image: url(\''. get_theme_mod( "wpf_header_background" ) .'\');"'; ?>>
 	<hgroup class="header-title">
 					<?php if ( get_theme_mod( 'wpf_logo' ) ) : ?>
                         <?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1 class="logo">'; } else { echo '<div class="logo">'; } ?>
@@ -29,7 +29,7 @@
 
 
 <nav class="navigation" data-sticky-container>
-	<div data-sticky data-options="marginTop:0;" data-top-anchor="300" data-sticky-on="small">
+	<div data-sticky data-options="marginTop:0;" data-top-anchor="450" data-sticky-on="small">
 		<div class="title-bar hide-for-medium" data-responsive-toggle="responsive-menu">
 			<button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
 			<div class="title-bar-title"><?php echo __('Menu', 'wpf'); ?></div>

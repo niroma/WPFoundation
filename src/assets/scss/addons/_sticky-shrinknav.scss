@@ -1,5 +1,5 @@
 
-$branded-header-height: 300px;
+$branded-header-height: 450px;
 $sticky-shrinknav-menu-height: rem-calc(60);
 
 .header-title {
@@ -30,6 +30,12 @@ $sticky-shrinknav-menu-height: rem-calc(60);
   color: $white;
 
   height: $branded-header-height / 1.5;
+
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: 50% 50%; 
+  position: relative;
+  overflow:hidden;
 
   @include breakpoint(medium) {
     height: ($branded-header-height);

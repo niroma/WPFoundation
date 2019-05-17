@@ -1,3 +1,4 @@
+<hr>
 <div id="comments">
 <?php
 if ( have_comments() ) :

@@ -1,6 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('grid-x'); ?>>
-	<?php $order = ( $counter % 2 == 0 ) ? 1 : 2;
-		$order2 = ( $counter % 2 == 0 ) ? 2 : 1;
+    <?php 
+        $order = ( $wp_query->current_post % 2 == 0 ) ? 1 : 2;
+		$order2 = ( $wp_query->current_post % 2 == 0 ) ? 2 : 1;
 	?>
     <div class="small-12 medium-6 small-order-1 medium-order-<?php echo $order; ?>">
         <?php $post_id = get_the_ID(); 

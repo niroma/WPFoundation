@@ -15,14 +15,20 @@
 
             <div class="simple-subscription-form cell small-12">
               <form>
-                <h4>Subscribe</h4>
-                <p>Receive updates and latest news direct from our team. Simply enter your email below :</p>
+                <h4><i class="fas fa-paper-plane"></i> Subscribe</h4>
 				<div class="grid-x grid-padding-x">
-                	<div class="cell auto">
-                    	<input type="email" placeholder="Email" required>
+                	<div class="cell medium-auto small-12">
+						<p>Receive updates and latest news direct from our team. Simply enter your email below :</p>
                     </div>
-                	<div class="cell shrink">
-                    	<button class="button">Sign up now</button>
+                	<div class="cell medium-auto small-12">
+						<div class="grid-x grid-padding-x">
+							<div class="cell auto">
+								<input type="email" placeholder="Email" required>
+							</div>
+							<div class="cell shrink">
+								<button class="button">Sign up now</button>
+							</div>
+						</div>
                     </div>
                 </div>
               </form>
